@@ -1,0 +1,15 @@
+# MySQL pour le service Signalements & Vigilance
+# docker compose up -d   ->   MySQL sur localhost:3306 (root / root)
+services:
+  mysql:
+    image: mysql:8.4
+    container_name: meteosphere-signalements-db
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: meteosphere_signalements
+    ports:
+      - "3306:3306"
+    volumes:
+      - signalements_data:/var/lib/mysql
+volumes:
+  signalements_data:
